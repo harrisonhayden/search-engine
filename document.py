@@ -1,5 +1,5 @@
 """
-Harrison Hayden Section AD - This file implements the Document class, which
+This file implements the Document class, which
 takes in a document, parses it, and extracts different information pertaining
 to the words in the document
 """
