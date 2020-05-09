@@ -1,4 +1,3 @@
-# Author Dylan Jergens
 # This program runs the search engine, taking user input
 
 from search_engine import SearchEngine
