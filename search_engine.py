@@ -1,8 +1,3 @@
-"""
-Harrison Hayden Section AD - this file acts as a search engine, taking in
-a file directory and helping compute the relevance of a document in the
-directory to a given term using TF-IDF
-"""
 import math
 import os
 import re
@@ -10,17 +5,9 @@ from document import Document
 
 
 class SearchEngine:
-    """
-    Class that implements TFIDF to act as a search engine for a collection of
-    files
-    """
+    # Class that implements TFIDF to act as a search engine for a collection of files
+
     def __init__(self, dir_name):
-        """
-        Initializes the SearchEngine classs, taking a directory name as a
-        parameter and precomputes an inverse index in a dictionary as well
-        as the total number of documents in the directory and a dictonary
-        mapping a word to its number of document occurences
-        """
         self._dir = dir_name + '/'
         self._docs = {}
         self._inv_idx = {}
@@ -44,12 +31,6 @@ class SearchEngine:
                     self._num_docs_with_word[word] = 1
 
     def _calculate_idf(self, term):
-        """
-        Takes a string parameter of a word and calculates its idf across
-        all documents in the directory
-        Returns 0 if the word is not in any document
-        Ignores casing and punctuation
-        """
         term = term.lower()
         term = re.sub(r'\W+', '', term)
 
@@ -60,11 +41,6 @@ class SearchEngine:
             return math.log(self._num_docs/num)
 
     def search(self, term):
-        """
-        Takes a string parameter of any number of words, calculates the
-        TFIDF of each word and the search as a whole, and returns a list of
-        relevant documents sorted from most to least relevant
-        """
         terms = term.split()
         term = term.lower()
         term = re.sub(r'\W+', '', term)
